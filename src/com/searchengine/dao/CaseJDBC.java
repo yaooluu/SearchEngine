@@ -2,6 +2,8 @@ package com.searchengine.dao;
 
 import java.sql.*;
 
+import com.searchengine.config.PropertyConfiguration;
+
 
 public class CaseJDBC {
 
@@ -13,6 +15,7 @@ public class CaseJDBC {
 
 	public CaseJDBC(String url, String usr, String pwd) throws Exception {
 		Class.forName("com.mysql.jdbc.Driver").newInstance();
+		System.out.println(url);
 		con = DriverManager.getConnection(url, usr, pwd);
 		con.setAutoCommit(autoCommit);
 	}
@@ -81,9 +84,14 @@ public class CaseJDBC {
 	}
 
 	public static void main(String[] args) {
+		String url = PropertyConfiguration.getDBUrl();
+		String usr = PropertyConfiguration.getDBUsr();
+		String pwd = PropertyConfiguration.getDBPwd();
+		/*
 		String url = "jdbc:mysql://localhost/searchdb";
 		String usr = "root";
 		String pwd = "root";
+		*/
 		try {
 			new CaseJDBC(url, usr, pwd);
 		} catch (Exception e) {
