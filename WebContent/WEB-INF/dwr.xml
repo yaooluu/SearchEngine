@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 1.0//EN"
+    "http://www.getahead.ltd.uk/dwr/dwr10.dtd">
+
+<dwr>
+	<allow>
+		
+		<create creator="spring" javascript="searchService">
+			<param name="beanName" value="searchService" />
+		</create>
+		
+		<!-- Bean for Search -->
+		<convert converter="bean"
+			match="com.searchengine.service.dao.SearchResult">
+		</convert>
+		<convert converter="bean"
+			match="com.searchengine.service.dao.SearchResults">
+		</convert>
+		<convert converter="bean"
+			match="com.searchengine.service.dao.SearchRequest">
+		</convert>
+		
+	</allow>
+</dwr>
